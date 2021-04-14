@@ -51,6 +51,7 @@ function App() {
             </button>
           </div>
 
+          {/* Password Length */}
           <div className="form-group">
             <label htmlFor="password-length">Password length</label>
             <input
@@ -63,6 +64,7 @@ function App() {
             min='10'/>
           </div>
 
+          {/* input for uppercase letters */}
           <div className="form-group">
             <label htmlFor="uppercase-letters">Include Uppercase letters</label>
             <input
@@ -107,6 +109,7 @@ function App() {
             />
           </div>
 
+          {/* Generate password button */}
           <button onClick={handleGeneratePassword} className="generator__btn">Generate Password</button>
         </div>
       </div>

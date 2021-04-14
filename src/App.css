@@ -7,6 +7,8 @@
     margin: 0 auto;
     padding-top: 200px;
 }
+
+/* Everything within the main box */
 .generator {
     background: #218c74;
     border-radius: 3px;
@@ -26,6 +28,18 @@
     height: 46px;
     margin-bottom: 15px;
 }
+.generator__btn{
+    background: #3c6382;
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: azure;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* Font awesome copy button > copies to clipboard */
 .copy__btn{
     position:absolute;
     background: #ff793f;
@@ -37,16 +51,8 @@
     top: 3px;
     right: 3px;
 }
-.generator__btn{
-    background: #3c6382;
-    border: none;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    color: azure;
-    font-size: 17px;
-    cursor: pointer;
-}
+
+/* Each input ie: upper, lower, numbers, symbols */
 .form-group{
     display: flex;
     justify-content: space-between;
