@@ -8,6 +8,7 @@ function App() {
   const [includeLowercase, setIncludeLowercase] = useState(false)
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSymbols, setIncludeSymbols] = useState(false)
+  const handleGeneratePassword = (e) => {}
   return (
     <div className='App'>
       <div className='container'>
@@ -36,6 +37,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="uppercase-letters">Include Uppercase letters</label>
             <input
+              checked={includeUppercase}
+              onChange={(e) => setIncludeUppercase(e.target.checked)}
               type='checkbox'
               id='uppercase-letters'
               name='uppercase-letters'
@@ -44,6 +47,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="lowercase-letters">Include Lowercase letters</label>
             <input
+              checked={includeLowercase}
+              onChange={(e) => setIncludeLowercase(e.target.checked)}
               type='checkbox'
               id='lowercase-letters'
               name='lowercase-letters'
@@ -52,6 +57,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="include-numbers">Include Numbers</label>
             <input
+              checked={includeNumbers}
+              onChange={(e) => setIncludeNumbers(e.target.checked)}
               type='checkbox'
               id='include-numbers'
               name='include-numbers'
@@ -60,12 +67,14 @@ function App() {
           <div className="form-group">
             <label htmlFor="include-symbols">Include Symbols</label>
             <input
+              checked={includeSymbols}
+              onChange={(e) => setIncludeSymbols(e.target.checked)}
               type='checkbox'
               id='include-symbols'
               name='include-symbols'
             />
           </div>
-          <button className="generator__btn">Generate Button</button>
+          <button onClick={handleGeneratePassword} className="generator__btn">Generate Password</button>
         </div>
       </div>
     </div>
