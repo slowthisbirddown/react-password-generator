@@ -16,18 +16,20 @@ function App() {
             Password Generator
           </h2>
           <div className='generator__password'>
-            <h3>Password</h3>
+            <h3>{password}</h3>
             <button className="copy__btn">
               <i className='far fa-clipboard'></i>
             </button>
           </div>
 
           <div className="form-group">
-            <label htmlFor="password-strength">Password Strength</label>
+            <label htmlFor="password-length">Password length</label>
             <input
+            defaultValue={passwordLength}
+            onChange={(e) => setPasswordLength.target.defaultValue}
             type="number"
-            id="password-strength"
-            name="password-strength"
+            id="password-length"
+            name="password-length"
             max='20'
             min='10'/>
           </div>
