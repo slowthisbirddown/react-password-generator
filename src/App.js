@@ -22,44 +22,43 @@ function App() {
   const handleGeneratePassword = (e) =>  {
 
     // Condition checking
-    if(!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols)
-      notify('You must select atleast one option',true)
-    }
-    let characterList = ''
+    if(!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
+      notify('You must select at least one option', true)
+    } else {
+      let characterList = ''
 
-    if(includeLowercase) {
-      // Type what CTRL+K+C
-      characterList = characterList + lowerCaseLetters
-    }
-    if(includeUppercase) {
-      characterList = characterList + upperCaseLetters
-    }
+      if(includeLowercase) {
+        // Type what CTRL+K+C
+        characterList = characterList + lowerCaseLetters
+      }
+      if(includeUppercase) {
+        characterList = characterList + upperCaseLetters
+      }
 
-    if(includeNumbers) {
-      characterList = characterList + numbers
-    }
+      if(includeNumbers) {
+        characterList = characterList + numbers
+      }
 
-    if(includeSymbols) {
-      characterList = characterList + specialCharacters
-    }
+      if(includeSymbols) {
+        characterList = characterList + specialCharacters
+      }
 
-    setPassword(createPassword(characterList))
+      setPassword(createPassword(characterList))
+    }
   }
 
   const createPassword = (characterList) => {
     let password = ''
     const characterListLength = characterList.length
 
-    console.log(characterListLength);
+    // console.log(characterListLength);
 
     // Generates random index
     for (let i=0; i < passwordLength; i++) {
       const characterIndex = Math.round(Math.random() * characterListLength)
-      console.log(characterIndex);
-
       password = password + characterList.charAt(characterIndex)
-      console.log(password)
     }
+
     return password
   }
 
@@ -83,8 +82,7 @@ function App() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
-
+      });
     } else {
       toast(message, {
         position: "top-center",
@@ -94,16 +92,14 @@ function App() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      })
+      });
     }
-
   }
 
   const handleCopyPassword = (e) => {
     copyToClipboard()
     notify(COPY_SUCCESS)
   }
-
 
   return (
     <div className='App'>
