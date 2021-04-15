@@ -17,8 +17,7 @@ function App() {
    * Handle password generation
    * @param {event} e
    */
-  // function handleGeneratePassword(e) {
-  const handleGeneratePassword = (e) => {
+   function handleGeneratePassword(e) {
     console.log("Generate a password")
     let characterList = ''
 
@@ -40,13 +39,20 @@ function App() {
 
     setPassword(createPassword(characterList))
   }
+
   const createPassword = (characterList) => {
     let password = ''
-    const characterListLength = characterList.Length
+    const characterListLength = characterList.length
 
-    for(let i=0; i < passwordLength; i++){
+    console.log(characterListLength);
+
+    // Generates random index
+    for (let i=0; i < passwordLength; i++) {
       const characterIndex = Math.round(Math.random() * characterListLength)
-      password = password + characterList.charrAt()
+      console.log(characterIndex);
+
+      password = password + characterList.charAt(characterIndex)
+      console.log(password)
     }
     return password
   }
@@ -58,6 +64,7 @@ function App() {
           <h2 className='generator__header'>
             Password Generator
           </h2>
+
           <div className='generator__password'>
             <h3>{password}</h3>
             <button className="copy__btn">
@@ -69,13 +76,14 @@ function App() {
           <div className="form-group">
             <label htmlFor="password-length">Password length</label>
             <input
-            defaultValue={passwordLength}
-            onChange={(e) => setPasswordLength.target.defaultValue}
-            type="number"
-            id="password-length"
-            name="password-length"
-            max='20'
-            min='10'/>
+              defaultValue={passwordLength}
+              onChange={(e) => setPasswordLength.target.defaultValue}
+              type="number"
+              id="password-length"
+              name="password-length"
+              max='20'
+              min='10'
+            />
           </div>
 
           {/* input for uppercase letters */}
