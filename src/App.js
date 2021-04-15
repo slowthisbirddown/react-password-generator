@@ -97,8 +97,12 @@ function App() {
   }
 
   const handleCopyPassword = (e) => {
-    copyToClipboard()
-    notify(COPY_SUCCESS)
+    if(password === '') {
+      notify('Nothing to copy', true)
+    } else {
+      copyToClipboard()
+      notify(COPY_SUCCESS)
+    }
   }
 
   return (
@@ -121,7 +125,8 @@ function App() {
             <label htmlFor="password-length">Password length</label>
             <input
               defaultValue={passwordLength}
-              onChange={(e) => setPasswordLength.target.defaultValue}
+              // This did not allow to use the arrows in the length box
+              // onChange={(e) => setPasswordLength.target.defaultValue}
               type="number"
               id="password-length"
               name="password-length"
