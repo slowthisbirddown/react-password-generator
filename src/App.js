@@ -2,27 +2,29 @@ import React, { useState } from 'react';
 import './App.css';
 import {numbers, upperCaseLetters, lowerCaseLetters, specialCharacters} from './characters'
 
+
 function App() {
+
+  // Checkbox states not checked by default
   const [password, setPassword] = useState('')
   const [passwordLength, setPasswordLength] = useState(20)
-  const [includeUppercase, setIncludeUppercase] = useState(false)
-  const [includeLowercase, setIncludeLowercase] = useState(false)
+  const [includeUppercase, setIncludeUppercase] = useState(true)
+  const [includeLowercase, setIncludeLowercase] = useState(true)
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSymbols, setIncludeSymbols] = useState(false)
 
-  // const handleGeneratePassword = (e) => {
   /**
    * Handle password generation
-   * This is my comment to Adam to explain
-   * how the fuck this function works
    * @param {event} e
    */
-  function handleGeneratePassword(e) {
+  // function handleGeneratePassword(e) {
+  const handleGeneratePassword = (e) => {
+    console.log("Generate a password")
     let characterList = ''
 
     if(includeLowercase) {
       // Type what CTRL+K+C
-      characterList= characterList + lowerCaseLetters
+      characterList = characterList + lowerCaseLetters
     }
     if(includeUppercase) {
       characterList = characterList + upperCaseLetters
@@ -35,6 +37,18 @@ function App() {
     if(includeSymbols) {
       characterList = characterList + specialCharacters
     }
+
+    setPassword(createPassword(characterList))
+  }
+  const createPassword = (characterList) => {
+    let password = ''
+    const characterListLength = characterList.Length
+
+    for(let i=0; i < passwordLength; i++){
+      const characterIndex = Math.round(Math.random() * characterListLength)
+      password = password + characterList.charrAt()
+    }
+    return password
   }
 
   return (
